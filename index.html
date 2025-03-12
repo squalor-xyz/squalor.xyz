@@ -16,6 +16,7 @@
       background: #111; /* Dark background for a dystopian/tech vibe */
       color: #f0f0f0;
       overflow-x: hidden; /* Prevent horizontal scroll bars */
+      line-height: 1.4;
     }
     header {
       text-align: center;
@@ -57,14 +58,37 @@
     footer {
       text-align: center;
       padding: 2rem;
-      opacity: 0.7;
+      opacity: 0.8;
       font-size: 0.9rem;
     }
-    a {
+    footer a {
       color: #0af;
+      margin: 0 10px;
     }
-    a:hover {
+    footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Contact & About sections (simple styling) */
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .hidden-email {
+      color: #0af;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .hidden-email:hover {
+      text-decoration: none;
     }
   </style>
 </head>
@@ -85,30 +109,47 @@
     <p class="tagline">Consulting • Contracting • Technology Development</p>
   </header>
 
+  <!-- The game canvas -->
   <section id="game-container">
     <canvas id="gameCanvas" width="600" height="300"></canvas>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Squalor</h2>
+    <p>
+      Squalor is a forward-thinking technology company specializing in innovative software, 
+      hardware prototypes, and consulting services. Our focus is on delivering custom solutions 
+      that push boundaries and spark new possibilities.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Click to reveal our email address:</p>
+    <span class="hidden-email" id="contactEmail">[ Show Email ]</span>
   </section>
 
   <footer>
     <p>
       <strong>Squalor, LLC</strong> - 
       <em>Jump into the future.</em><br/>
-      <a href="#contact">Contact</a> | 
-      <a href="#about">About</a>
+      <a href="#about">About</a> | 
+      <a href="#contact">Contact</a>
     </p>
   </footer>
 
   <script>
     /**********************************************************
-      Simple Side-Scrolling Runner Game in Vanilla JS/Canvas
+      Game Code
     **********************************************************/
-
     const canvas = document.getElementById('gameCanvas');
     const ctx = canvas.getContext('2d');
 
     // Game constants
     const GRAVITY = 0.5;
-    const JUMP_FORCE = -10;
+    const JUMP_FORCE = -12; // slightly stronger jump
     const PLAYER_WIDTH = 30;
     const PLAYER_HEIGHT = 30;
     const FLOOR_HEIGHT = 50;
@@ -132,9 +173,12 @@
     // For animation loop
     let lastTime = 0;
 
-    // Key press handling
+    // Score
+    let score = 0;
+
     document.addEventListener('keydown', (e) => {
       if (e.code === 'Space') {
+        e.preventDefault(); // prevent scrolling on space
         jump();
       }
     });
@@ -165,8 +209,14 @@
       }
 
       // Update obstacle positions
-      for (let i = 0; i < obstacles.length; i++) {
-        obstacles[i].x -= obstacles[i].speed;
+      for (let obs of obstacles) {
+        obs.x -= obs.speed;
+
+        // If the obstacle has moved past the player and is not counted yet
+        if (!obs.passed && obs.x + OBSTACLE_WIDTH < player.x) {
+          obs.passed = true;  // Mark as passed
+          score++;            // Increase score
+        }
       }
 
       // Remove obstacles off-screen
@@ -177,8 +227,10 @@
     }
 
     function spawnObstacle() {
-      // A random height for the obstacle
-      const obstacleHeight = 30 + Math.random() * 50;
+      // Keep obstacles in a range of heights so they’re jumpable
+      const minHeight = 30;
+      const maxHeight = 60; // reduce max so obstacles are easier
+      const obstacleHeight = minHeight + Math.random() * (maxHeight - minHeight);
       const obstacleSpeed = 3 + Math.random() * 2;
 
       obstacles.push({
@@ -186,7 +238,8 @@
         y: canvas.height - FLOOR_HEIGHT - obstacleHeight,
         width: OBSTACLE_WIDTH,
         height: obstacleHeight,
-        speed: obstacleSpeed
+        speed: obstacleSpeed,
+        passed: false
       });
     }
 
@@ -198,7 +251,7 @@
           player.y < obs.y + obs.height &&
           player.y + PLAYER_HEIGHT > obs.y
         ) {
-          // Collision detected - for now, just reset
+          // Collision detected - reset game
           resetGame();
           return;
         }
@@ -222,6 +275,11 @@
       for (let obs of obstacles) {
         ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
       }
+
+      // Draw score
+      ctx.fillStyle = "#fff";
+      ctx.font = "16px sans-serif";
+      ctx.fillText("Score: " + score, 10, 20);
     }
 
     function gameLoop(timestamp) {
@@ -244,10 +302,27 @@
       // Clear obstacles
       obstacles = [];
       lastObstacleTime = performance.now();
+
+      // Reset score
+      score = 0;
     }
 
     // Start the loop
     requestAnimationFrame(gameLoop);
+
+    /**********************************************************
+      Contact Email Obfuscation
+    **********************************************************/
+    const contactEmailElem = document.getElementById("contactEmail");
+    contactEmailElem.addEventListener("click", function() {
+      // Construct the email with JavaScript so it's not in raw HTML
+      const user = "contact";    // or your email user part
+      const domain = "squalor.xyz"; // domain
+      const address = user + "@" + domain;
+
+      // Create a mailto link
+      window.location.href = "mailto:" + address;
+    });
   </script>
 </body>
 </html>
