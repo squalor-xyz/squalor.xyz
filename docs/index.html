@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Squalor - Landing Page</title>
+  <style>
+    /* Reset some default styles for consistency */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #111; /* Dark background for a dystopian/tech vibe */
+      color: #f0f0f0;
+      overflow-x: hidden; /* Prevent horizontal scroll bars */
+    }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+    }
+    .logo {
+      width: 120px;
+      margin: 0 auto;
+    }
+    /* Simple brand name styling */
+    h1.brand-name {
+      font-size: 2rem;
+      margin-top: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    p.tagline {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    /* Container for the game canvas */
+    #game-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem auto;
+      max-width: 800px;
+      width: 100%;
+    }
+    canvas {
+      background: #222; /* A darkish background for the game area */
+      display: block;
+      border: 2px solid #555;
+    }
+
+    /* Footer or additional links */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    a {
+      color: #0af;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- Inline SVG logo example (simple stylized "S") -->
+    <div class="logo">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Circle background or any shape you like -->
+        <circle cx="100" cy="100" r="90" fill="none" stroke="#0af" stroke-width="8"/>
+        <!-- Stylized "S" path -->
+        <path d="M60,80 C60,50 140,50 140,80 C140,110 60,110 60,140 C60,170 140,170 140,140"
+              fill="none" stroke="#0af" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1 class="brand-name">Squalor</h1>
+    <p class="tagline">Consulting • Contracting • Technology Development</p>
+  </header>
+
+  <section id="game-container">
+    <canvas id="gameCanvas" width="600" height="300"></canvas>
+  </section>
+
+  <footer>
+    <p>
+      <strong>Squalor, LLC</strong> - 
+      <em>Jump into the future.</em><br/>
+      <a href="#contact">Contact</a> | 
+      <a href="#about">About</a>
+    </p>
+  </footer>
+
+  <script>
+    /**********************************************************
+      Simple Side-Scrolling Runner Game in Vanilla JS/Canvas
+    **********************************************************/
+
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Game constants
+    const GRAVITY = 0.5;
+    const JUMP_FORCE = -10;
+    const PLAYER_WIDTH = 30;
+    const PLAYER_HEIGHT = 30;
+    const FLOOR_HEIGHT = 50;
+    const OBSTACLE_WIDTH = 20;
+    const OBSTACLE_GAP = 2000; // ms between obstacles
+
+    // Player object
+    let player = {
+      x: 50,
+      y: canvas.height - FLOOR_HEIGHT - PLAYER_HEIGHT,
+      vy: 0, // velocity in y
+      onGround: true
+    };
+
+    // Obstacles array
+    let obstacles = [];
+
+    // Time tracking for spawning obstacles
+    let lastObstacleTime = 0;
+
+    // For animation loop
+    let lastTime = 0;
+
+    // Key press handling
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        jump();
+      }
+    });
+
+    function jump() {
+      if (player.onGround) {
+        player.vy = JUMP_FORCE;
+        player.onGround = false;
+      }
+    }
+
+    function update(deltaTime) {
+      // Update player position
+      player.vy += GRAVITY;
+      player.y += player.vy;
+
+      // Check if player hits the ground
+      if (player.y >= canvas.height - FLOOR_HEIGHT - PLAYER_HEIGHT) {
+        player.y = canvas.height - FLOOR_HEIGHT - PLAYER_HEIGHT;
+        player.onGround = true;
+        player.vy = 0;
+      }
+
+      // Spawn new obstacles over time
+      if (performance.now() - lastObstacleTime > OBSTACLE_GAP) {
+        spawnObstacle();
+        lastObstacleTime = performance.now();
+      }
+
+      // Update obstacle positions
+      for (let i = 0; i < obstacles.length; i++) {
+        obstacles[i].x -= obstacles[i].speed;
+      }
+
+      // Remove obstacles off-screen
+      obstacles = obstacles.filter(obs => obs.x + OBSTACLE_WIDTH > 0);
+
+      // Check collisions
+      checkCollisions();
+    }
+
+    function spawnObstacle() {
+      // A random height for the obstacle
+      const obstacleHeight = 30 + Math.random() * 50;
+      const obstacleSpeed = 3 + Math.random() * 2;
+
+      obstacles.push({
+        x: canvas.width,
+        y: canvas.height - FLOOR_HEIGHT - obstacleHeight,
+        width: OBSTACLE_WIDTH,
+        height: obstacleHeight,
+        speed: obstacleSpeed
+      });
+    }
+
+    function checkCollisions() {
+      for (let obs of obstacles) {
+        if (
+          player.x < obs.x + obs.width &&
+          player.x + PLAYER_WIDTH > obs.x &&
+          player.y < obs.y + obs.height &&
+          player.y + PLAYER_HEIGHT > obs.y
+        ) {
+          // Collision detected - for now, just reset
+          resetGame();
+          return;
+        }
+      }
+    }
+
+    function draw() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw floor
+      ctx.fillStyle = "#444";
+      ctx.fillRect(0, canvas.height - FLOOR_HEIGHT, canvas.width, FLOOR_HEIGHT);
+
+      // Draw player
+      ctx.fillStyle = "#0af";
+      ctx.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT);
+
+      // Draw obstacles
+      ctx.fillStyle = "tomato";
+      for (let obs of obstacles) {
+        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+      }
+    }
+
+    function gameLoop(timestamp) {
+      const deltaTime = timestamp - lastTime;
+      lastTime = timestamp;
+
+      update(deltaTime);
+      draw();
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    function resetGame() {
+      // Reset player
+      player.x = 50;
+      player.y = canvas.height - FLOOR_HEIGHT - PLAYER_HEIGHT;
+      player.vy = 0;
+      player.onGround = true;
+
+      // Clear obstacles
+      obstacles = [];
+      lastObstacleTime = performance.now();
+    }
+
+    // Start the loop
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>
