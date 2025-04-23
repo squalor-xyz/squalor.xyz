@@ -1,49 +1,52 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Squalor, LLC - Services</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .cta {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .cta a {
+      background: #0af;
+      color: #111;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .cta a:hover {
+      background: #08c;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -60,46 +63,45 @@
   </nav>
   <section id="services">
     <h2>Our Services</h2>
-    <p>At Squalor, LLC, we deliver a suite of innovative services tailored to meet the needs of businesses navigating the complexities of technology and growth. From strategic consulting to cutting-edge technology development, our goal is to empower your organization with solutions that drive efficiency, spark innovation, and position you for success.</p>
+    <p>At Squalor, LLC, we provide tailored solutions to help your business innovate and succeed. 
+    <br>Below, you’ll find an overview of our core offerings.</br></p>
     
-    <h3>Consulting Services</h3>
-    <p>Our consulting expertise is designed to help you overcome challenges and seize opportunities in an ever-evolving technological landscape. We partner with you to provide actionable insights and strategies in key areas:</p>
+    <h3>Consulting</h3>
+    <p>Our consulting services empower you to tackle complex challenges with confidence. We bring deep expertise to the table, offering strategic guidance in technology and operations. Here’s what we provide:</p>
     <ul>
-      <li><strong>Technology Development:</strong> Navigate the adoption of new software and hardware solutions with confidence, ensuring your business stays ahead of the curve.</li>
-      <li><strong>Organizational Structuring:</strong> Optimize your company’s framework for scalability and performance, aligning your team and resources with your long-term vision.</li>
-      <li><strong>Workflow Optimization:</strong> Streamline processes to boost productivity, with a special focus on data-heavy workflows in industries like semiconductors.</li>
+      <li><strong>Technology Strategy</strong>: We assess your current tech stack, identify gaps, and create a roadmap to align it with your long-term business goals.</li>
+      <li><strong>Organizational Optimization</strong>: From team structure to process workflows, we help you streamline operations for maximum efficiency and productivity.</li>
+      <li><strong>Workflow Automation</strong>: Specializing in data-heavy industries like semiconductors, we design automated systems to reduce manual effort and improve accuracy.</li>
     </ul>
-    <p>Whether you’re integrating new tools or refining existing operations, our hands-on approach ensures that our recommendations are practical, tailored, and poised to deliver measurable results.</p>
     
     <h3>Technology Development</h3>
-    <p>We specialize in building custom solutions that address your unique needs, leveraging our extensive experience to create technology that works for you. Our development services include:</p>
+    <p>We craft custom technology solutions that solve your unique problems. Whether it’s software, hardware, or data tools, we deliver precision and innovation. Our services include:</p>
     <ul>
-      <li><strong>RF Test Automation:</strong> Drawing from our deep expertise in the semiconductor industry, we design automated testing systems for integrated circuits (ICs), delivering precise data collection and analysis to accelerate your product development.</li>
-      <li><strong>Custom Software Applications:</strong> We craft bespoke software for web, mobile, and desktop platforms, solving your specific challenges and enhancing operational efficiency.</li>
-      <li><strong>Hardware Prototyping and Design:</strong> Bring your ideas to life with our prototyping services, where we transform concepts into functional hardware solutions with an eye toward innovation.</li>
-      <li><strong>Computer Platform Development:</strong> We build robust, scalable platforms tailored to your industry, ensuring security and performance under real-world demands.</li>
-      <li><strong>Firmware for Embedded Systems:</strong> Our firmware solutions power embedded systems with reliability and efficiency, supporting even the most complex applications.</li>
-      <li><strong>Data Analysis and Report Generation:</strong> Turn raw data into actionable insights with our automation tools, designed to simplify decision-making and optimize outcomes.</li>
+      <li><strong>RF Test Automation</strong>: We develop automated testing systems for integrated circuits (ICs), ensuring reliability and efficiency in RF applications.</li>
+      <li><strong>Custom Software</strong>: From web and mobile apps to desktop tools, we build software tailored to your specific needs, with a focus on usability and performance.</li>
+      <li><strong>Hardware Prototyping</strong>: Have an idea? We turn it into a working prototype, bridging the gap between concept and reality.</li>
+      <li><strong>Firmware & Embedded Systems</strong>: Our team creates robust firmware and embedded solutions for devices requiring high reliability and real-time performance.</li>
+      <li><strong>Data Analysis Tools</strong>: We build automated tools to process and analyze data, giving you actionable insights quickly and effectively.</li>
     </ul>
-    <p>From concept to deployment, our development process is collaborative and results-driven, ensuring that every solution we deliver pushes boundaries and sparks new possibilities for your business.</p>
     
-    <h3>Contracting Services</h3>
-    <p>Need flexibility? Our contracting services provide expert software development and support tailored to your timeline and budget:</p>
+    <h3>Contracting</h3>
+    <p>Our contracting services offer flexible, expert support tailored to your project or ongoing needs. We step in where you need us most, delivering results without the overhead. Here’s how we help:</p>
     <ul>
-      <li><strong>Project-Based Development:</strong> We take on your projects with precision, delivering high-quality software solutions that meet your deadlines and expectations.</li>
-      <li><strong>Ongoing Support and Maintenance:</strong> Keep your systems running smoothly with our dedicated support, ensuring longevity and adaptability as your needs evolve.</li>
+      <li><strong>Project-Based Development</strong>: Need a one-off solution? We deliver high-quality software or systems, completed on time and within scope.</li>
+      <li><strong>Ongoing Support</strong>: From system maintenance to feature updates, we provide consistent, reliable support to keep your operations running smoothly.</li>
     </ul>
-    <p>Our contracting options are customizable, making us the ideal partner for both short-term initiatives and long-term collaborations.</p>
     
     <h3>Community Offerings</h3>
-    <p>Beyond technology, Squalor, LLC is committed to enriching the community. We offer locally sourced farming products like eggs and firewood, reflecting our dedication to sustainability and grassroots innovation. It’s just one more way we’re building a future that benefits everyone.</p>
+    <p>Beyond technology, we’re committed to sustainability and community impact. We offer products like farm-fresh eggs and locally sourced firewood, produced with care to support both the environment and local needs.</p>
     
-    <p>Ready to explore how we can support your business? <a href="contact.html">Contact us</a> today to discuss your project and discover the Squalor difference.</p>
+    <div class="cta">
+      <p>Have a project in mind or need more details? We’d love to hear from you.</p>
+      <a href="contact.html">Contact Us Today</a>
+    </div>
   </section>
   <footer>
     <p>
       <strong>Squalor, LLC</strong> - <em>Jump into the future.</em><br/>
-      Contact us:<br/>
       Email: <a href="mailto:contact@squalor.xyz">contact@squalor.xyz</a>
     </p>
   </footer>
