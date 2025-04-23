@@ -42,7 +42,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Squalor, LLC</title>
+  <title>Squalor, LLC - Contact</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -58,12 +58,23 @@
     <a href="services.html">Services</a> |
     <a href="contact.html">Contact</a>
   </nav>
-  <section id="game-container">
-    <canvas id="gameCanvas" width="600" height="300"></canvas>
-  </section>
-  <section id="about">
-    <h2>About Squalor</h2>
-    <p>Squalor, LLC is a technology company specializing in innovative solutions. We offer consulting services and develop custom technology to meet your business needs. <a href="services.html">Learn more about our services</a>.</p>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>For inquiries or to discuss your project, please reach out to us:</p>
+    <p>
+      Email: contact@squalor.xyz<br/>
+      Phone: [Your Phone Number]<br/>
+      Address: [Your Address]
+    </p>
+    <form action="submit_form.php" method="post">
+      <label for="name">Name:</label><br/>
+      <input type="text" id="name" name="name"><br/>
+      <label for="email">Email:</label><br/>
+      <input type="email" id="email" name="email"><br/>
+      <label for="message">Message:</label><br/>
+      <textarea id="message" name="message"></textarea><br/>
+      <input type="submit" value="Send">
+    </form>
   </section>
   <footer>
     <p>
@@ -74,6 +85,5 @@
       Address: [Your Address]
     </p>
   </footer>
-  <script src="game.js"></script>
 </body>
 </html>
