@@ -1,83 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Squalor, LLC - Space</title>
-  <link rel="stylesheet" href="../../style.css">
-  <style>
-    section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      margin-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A small archive of space-themed simulations and experiments published by Squalor LLC.">
+  <title>Squalor LLC | Space Experiments</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="../../logo.svg" alt="Squalor Logo">
-    </div>
-    <h1 class="brand-name">Squalor</h1>
-    <p class="tagline">Consulting • Contracting • Technology Development</p>
-  </header>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="services.html">Services</a> |
-    <a href="space/index.html">Space</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
-  <section id="directory">
-    <h2>Space</h2>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="nav-bar">
+        <div class="brand-lockup">
+          <img class="logo-mark" src="logo.svg" alt="Squalor LLC logo">
+          <div class="brand-text">
+            <h1>Squalor LLC</h1>
+            <p>Software, automation, and technical execution</p>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a class="active" href="space-index.html">Space</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-	<ul>
-		<li><strong>bh/</strong>
-		<ul>
-			<li><strong>sagittarius-a/</strong>
-			<ul>
-				<li><a href="space/blackhole/sagittarius-a/sagittarius-a.html">sagittarius-a.html</a></li>
-				<li><a href="space/blackhole/sagittarius-a/sagittarius-a_deepseek.html">sagittarius-a_deepseek.html</a></li>
-				<li><a href="space/blackhole/sagittarius-a/sagittarius-a_gemini.html">sagittarius-a_gemini.html</a></li>
-				<li><a href="space/blackhole/sagittarius-a/sagittarius-a_openai.html">sagittarius-a_openai.html</a></li>
-			</ul>
-			</li>
-				<li><a href="/space/blackhole/blackhole.html">blackhole.html</a></li>
-			</ul>
-			</li>
-			<li><strong>blackhole-merge/</strong>
-			<ul>
-				<li><a href="space/blackhole/blackhole-merge/merge.html">merge.html</a></li>
-				<li><a href="space/blackhole/blackhole-merge/merge_deepseek.html">merge_deepseek.html</a></li>
-				<li><a href="space/blackhole/blackhole-merge/merge_gemini.html">merge_gemini.html</a></li>
-			</ul>
-			</li>
-			<li><strong>merge-milkyway-andromeda/</strong>
-			<ul>
-				<li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger.html">solar-system-merger.html</a></li>
-				<li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_deepseek.html">solar-system-merger_deepseek.html</a></li>
-				<li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_gemini.html">solar-system-merger_gemini.html</a></li>
-				<li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_openai.html">solar-system-merger_openai.html</a></li>
-			</ul>
-		</li>
-	</ul>
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="panel">
+            <div class="eyebrow">Space archive</div>
+            <h2>Small simulations, black holes, and side-path curiosity.</h2>
+            <p>This section collects experiments that sit outside the core services business. They are part playground, part public notebook, and a useful reminder that building for the sake of understanding is still worthwhile.</p>
+          </div>
+        </div>
+      </section>
 
-  </section>
-  <footer>
-    <p>
-      <strong>Squalor, LLC</strong> - <em>Jump into the future.</em><br/>
-      Email: <a href="mailto:contact@squalor.xyz">contact@squalor.xyz</a>
-    </p>
-  </footer>
+      <section class="section">
+        <div class="container service-grid">
+          <article class="list-card">
+            <h4>Sagittarius A*</h4>
+            <p>Multiple versions of a simulation exploring our galaxy’s central black hole.</p>
+            <ul class="link-list">
+              <li><a href="space/blackhole/sagittarius-a/sagittarius-a.html">Default version</a></li>
+              <li><a href="space/blackhole/sagittarius-a/sagittarius-a_openai.html">OpenAI variant</a></li>
+              <li><a href="space/blackhole/sagittarius-a/sagittarius-a_deepseek.html">DeepSeek variant</a></li>
+              <li><a href="space/blackhole/sagittarius-a/sagittarius-a_gemini.html">Gemini variant</a></li>
+            </ul>
+          </article>
+
+          <article class="list-card">
+            <h4>Black hole merger</h4>
+            <p>Visual experiments around collision and merger scenarios.</p>
+            <ul class="link-list">
+              <li><a href="space/blackhole/blackhole.html">Base black hole page</a></li>
+              <li><a href="space/blackhole/blackhole-merge/merge.html">Default merger simulation</a></li>
+              <li><a href="space/blackhole/blackhole-merge/merge_openai.html">OpenAI variant</a></li>
+              <li><a href="space/blackhole/blackhole-merge/merge_deepseek.html">DeepSeek variant</a></li>
+              <li><a href="space/blackhole/blackhole-merge/merge_gemini.html">Gemini variant</a></li>
+              <li><a href="space/blackhole/blackhole-merge/merge_lumo.html">Lumo variant</a></li>
+            </ul>
+          </article>
+
+          <article class="list-card">
+            <h4>Milky Way / Andromeda merger</h4>
+            <p>Solar-system-scale thought experiments for a much larger galactic event.</p>
+            <ul class="link-list">
+              <li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger.html">Default version</a></li>
+              <li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_openai.html">OpenAI variant</a></li>
+              <li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_deepseek.html">DeepSeek variant</a></li>
+              <li><a href="space/blackhole/merge-milkyway-andromeda/solar-system-merger_gemini.html">Gemini variant</a></li>
+            </ul>
+          </article>
+
+          <article class="list-card">
+            <h4>Project notes</h4>
+            <p>Underlying prompt material and scratchpad artifacts used to generate some of these experiments.</p>
+            <ul class="link-list">
+              <li><a href="space/blackhole/prompts/blackhole-prompts.txt">Black hole prompts</a></li>
+              <li><a href="space/blackhole/prompts/deepseek-merge-prompt.txt">Merge prompt</a></li>
+              <li><a href="space/blackhole/prompts/deepseek-solar-system-merge-prompt.txt">Solar-system merge prompt</a></li>
+              <li><a href="space/blackhole/prompts/deepseek-sagittarius-a-prompt.txt">Sagittarius A* prompt</a></li>
+              <li><a href="space/blackhole/prompts/grok-sagittarius-a-prompt.txt">Grok Sagittarius A* prompt</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bar">
+        <div class="footer-copy">
+          <strong>Squalor LLC</strong><br>
+          Main business on one side, experiments on the other.
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Back to the main site</a>
+          <a href="https://github.com/squalor-xyz">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
