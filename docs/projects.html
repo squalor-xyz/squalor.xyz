@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Public projects from Squalor LLC, including Noterizer, Consecutor, Obfuscator, and emerging work like DataBall.">
+  <title>Squalor LLC | Projects</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="nav-bar">
+        <div class="brand-lockup">
+          <img class="logo-mark" src="logo.svg" alt="Squalor LLC logo">
+          <div class="brand-text">
+            <h1>Squalor LLC</h1>
+            <p>Software, automation, and technical execution</p>
+          </div>
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a class="active" href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <div class="panel">
+            <div class="eyebrow">Projects</div>
+            <h2>Public tooling, experiments, and emerging systems.</h2>
+            <p>This page collects the public project surface for Squalor LLC. Some repos are more mature than others, but together they show the same bias toward practical workflows, useful automation, and technical tools that solve real problems.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container service-grid">
+          <article class="list-card">
+            <h4>Noterizer</h4>
+            <p>Local-first audio transcription, structured summarization, OCR note capture, and semantic recall. The pipeline includes WhisperX transcription, speaker diarization, Ollama-based summarization, OCR to markdown, semantic indexing with ChromaDB, and query across transcripts, summaries, and image notes.</p>
+            <p><a href="https://github.com/squalor-xyz/noterizer">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h4>DataBall</h4>
+            <p>Versatile data handling library for test executive applications. It is intended to support import/export across formats like CSV, Parquet, SQLite, archives, and `.ball`, along with metadata, relationships, DataFrame-style operations, and large dataset handling. It is heavily work-in-progress and likely to change substantially.</p>
+            <p><a href="https://github.com/squalor-xyz/DataBall">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h4>Consecutor</h4>
+            <p>A simple but capable app for tracking events and maintaining daily streaks. It supports reminders, streak tracking, and detailed stats, with locally stored and encrypted data for privacy.</p>
+            <p><a href="https://github.com/squalor-xyz/consecutor">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h4>Obfuscator</h4>
+            <p>A .NET library with a small CLI for generating synthetic CSV datasets, building ordered sweep datasets for test and characterization flows, reversibly obfuscating CSV data, and restoring obfuscated data from a manifest.</p>
+            <p><a href="https://github.com/squalor-xyz/Obfuscator">View repository</a></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container callout panel">
+          <div>
+            <div class="kicker">Organization</div>
+            <h3>See the broader public repo set.</h3>
+            <p>The GitHub organization remains the best place to see what is public right now, including utility projects, experiments, and whatever moves from internal use into open tooling over time.</p>
+          </div>
+          <a class="button" href="https://github.com/orgs/squalor-xyz/repositories?q=visibility%3Apublic+archived%3Afalse">Browse public repos</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-bar">
+        <div class="footer-copy">
+          <strong>Squalor LLC</strong><br>
+          Direct, practical technical work for teams that need momentum.
+        </div>
+        <div class="footer-links">
+          <a href="mailto:contact@squalor.xyz">contact@squalor.xyz</a>
+          <a href="https://github.com/squalor-xyz">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

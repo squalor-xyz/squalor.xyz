@@ -309,6 +309,32 @@ main {
   margin-bottom: 0.3rem;
 }
 
+.hero-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.mini-card {
+  padding: 1rem 1.05rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mini-card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1rem;
+}
+
+.mini-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
 .panel-grid,
 .cards-grid,
 .contact-grid,
@@ -483,7 +509,8 @@ canvas {
     grid-template-columns: 1fr;
   }
 
-  .stats {
+  .stats,
+  .hero-subgrid {
     grid-template-columns: 1fr;
   }
 }
