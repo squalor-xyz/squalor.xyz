@@ -24,9 +24,10 @@ Black-hole WebGL experiments are published from [squalor-xyz/space](https://gith
 ## Shared assets
 
 - `style.css` — layout and theme
-- `logo.svg` / `favicon.svg` — brand mark
+- `logo.svg` / `favicon.svg` — RF simple mark (from branding `rf/vector/`; no wordmark in the SVG)
+- `favicon-32.png` / `favicon-180.png` — raster favicon + apple-touch
 - `game.js` — home-page runner (only loaded on home)
-- `assets/og-default.png` — Open Graph image
+- `assets/og-default.png` — Open Graph card (RF simple on dark + SQUALOR / squalor.xyz); source `og-default.svg`
 - `robots.txt`, `sitemap.xml` — crawl helpers
 
 ## Positioning (content)
