@@ -4,7 +4,7 @@ Marketing site for **Squalor LLC** (solo technical contracting): software, autom
 
 **Live:** [https://squalor.xyz](https://squalor.xyz)
 
-**Experiments (separate site):** [https://space.squalor.xyz](https://space.squalor.xyz) — repo [squalor-xyz/space](https://github.com/squalor-xyz/space)
+**Space (separate site):** [https://space.squalor.xyz](https://space.squalor.xyz) — repo [squalor-xyz/space](https://github.com/squalor-xyz/space)
 
 ## Layout
 
