@@ -86,6 +86,7 @@ a:focus-visible,
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .brand-text p {
@@ -169,7 +170,8 @@ img {
   display: flex;
   align-items: center;
   gap: 0.3rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
   justify-content: flex-end;
 }
 
@@ -178,6 +180,7 @@ img {
   border-radius: 999px;
   color: var(--text);
   font-size: 0.96rem;
+  white-space: nowrap;
 }
 
 .nav-links a:hover,
@@ -556,6 +559,16 @@ canvas {
   .hero-subgrid {
     grid-template-columns: 1fr;
   }
+
+  .brand-text p:not(.brand-name) {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-links a {
+    padding: 0.55rem 0.7rem;
+  }
 }
 
 @media (max-width: 760px) {
@@ -570,6 +583,7 @@ canvas {
   }
 
   .nav-links {
+    flex-wrap: wrap;
     justify-content: flex-start;
   }
 
