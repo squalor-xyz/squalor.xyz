@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Squalor LLC">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Squalor LLC">
   <title>Squalor LLC — Open Graph</title>
-  <!-- Brand ground -->
   <rect width="1200" height="630" fill="#0f1419"/>
-  <!-- Soft accent glows -->
   <circle cx="280" cy="180" r="220" fill="#6ee7d2" opacity="0.06"/>
-  <circle cx="960" cy="480" r="260" fill="#f6c177" opacity="0.05"/>
-
-  <!-- RF simple mark, scaled and centered above type -->
-  <g transform="translate(600 268) scale(1.55) translate(-100 -100)">
-    <circle cx="100" cy="100" r="86" fill="none" stroke="#c9a962" stroke-width="4"/>
-    <circle cx="100" cy="100" r="74" fill="none" stroke="#6ee7d2" stroke-width="2.5"/>
-    <g fill="none" stroke="#6ee7d2" stroke-width="2.5" stroke-linecap="round" opacity="0.85">
-      <path d="M 55,100 A 45,45 0 0 1 100,55"/>
-      <path d="M 62,100 A 38,38 0 0 1 100,62"/>
-      <path d="M 70,100 A 30,30 0 0 1 100,70"/>
-    </g>
-    <path d="M 36,118 L 64,88 L 82,106 L 100,70 L 118,92 L 140,78 L 164,58"
-          fill="none" stroke="#c9a962" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-
-  <!-- Wordmarks -->
-  <text x="600" y="470" text-anchor="middle"
+  <circle cx="960" cy="480" r="260" fill="#c9a962" opacity="0.06"/>
+  <image href="seal.png" xlink:href="seal.png" x="450" y="48" width="300" height="300"/>
+  <text x="600" y="430" text-anchor="middle"
         font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif"
         font-size="48" font-weight="700" letter-spacing="10" fill="#f4efe7">SQUALOR</text>
-  <text x="600" y="520" text-anchor="middle"
+  <text x="600" y="478" text-anchor="middle"
         font-family="Avenir Next, Segoe UI, Helvetica Neue, Arial, sans-serif"
         font-size="26" font-weight="600" letter-spacing="2" fill="#6ee7d2">squalor.xyz</text>
 </svg>

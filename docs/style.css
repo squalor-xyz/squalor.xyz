@@ -146,8 +146,8 @@ img {
 }
 
 .logo-mark {
-  width: 60px;
-  height: 60px;
+  width: 72px;
+  height: 72px;
   padding: 0;
   border-radius: 50%;
   background: transparent;
@@ -462,6 +462,17 @@ li {
   align-items: center;
 }
 
+.merch-callout .merch-wordmark {
+  display: block;
+  width: min(100%, 360px);
+  justify-self: end;
+}
+
+.merch-callout .merch-wordmark img {
+  width: 100%;
+  height: auto;
+}
+
 .metrics {
   display: flex;
   flex-wrap: wrap;
@@ -562,6 +573,10 @@ canvas {
 
   .brand-text p:not(.brand-name) {
     display: none;
+  }
+
+  .merch-callout .merch-wordmark {
+    justify-self: start;
   }
 }
 
