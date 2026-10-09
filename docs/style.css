@@ -435,6 +435,26 @@ main {
   font-size: 1.2rem;
 }
 
+.project-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.55rem;
+}
+
+.list-card .project-title h3 {
+  margin: 0;
+}
+
+.project-mark {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
 .card p,
 .list-card p,
 .contact-card p,
