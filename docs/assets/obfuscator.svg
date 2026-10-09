@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Obfuscator">
+  <title>Obfuscator</title>
+  <desc>Two matched rows. The left cells are solid. The right cells are outlines.</desc>
+  <g fill="none" stroke="#6ee7d2" stroke-width="2.25">
+    <rect x="3" y="16" width="27" height="32" rx="6"/>
+    <rect x="34" y="16" width="27" height="32" rx="6"/>
+  </g>
+  <g>
+    <rect x="7" y="28" width="5.5" height="8" rx="1" fill="#f4efe7"/>
+    <rect x="14.25" y="28" width="5.5" height="8" rx="1" fill="#f4efe7"/>
+    <rect x="21.5" y="28" width="5.5" height="8" rx="1" fill="#f4efe7"/>
+  </g>
+  <g fill="none" stroke="#6ee7d2" stroke-width="1.6">
+    <rect x="38" y="28" width="5.5" height="8" rx="1"/>
+    <rect x="45.25" y="28" width="5.5" height="8" rx="1"/>
+    <rect x="52.5" y="28" width="5.5" height="8" rx="1"/>
+  </g>
+</svg>
