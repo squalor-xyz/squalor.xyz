@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Public projects from Squalor LLC, including Noterizer, Consecutor, Obfuscator, and emerging work like DataBall.">
+  <meta name="description" content="Public projects from Squalor LLC, including slicer, quire, DataBall, Obfuscator, Noterizer, Consecutor, and Space.">
   <title>Squalor LLC | Projects</title>
   <link rel="canonical" href="https://squalor.xyz/projects.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Squalor LLC">
   <meta property="og:title" content="Squalor LLC | Projects">
-  <meta property="og:description" content="Public projects from Squalor LLC, including Noterizer, Consecutor, Obfuscator, and emerging work like DataBall.">
+  <meta property="og:description" content="Public projects from Squalor LLC, including slicer, quire, DataBall, Obfuscator, Noterizer, Consecutor, and Space.">
   <meta property="og:url" content="https://squalor.xyz/projects.html">
   <meta property="og:image" content="https://squalor.xyz/assets/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Squalor LLC | Projects">
-  <meta name="twitter:description" content="Public projects from Squalor LLC, including Noterizer, Consecutor, Obfuscator, and emerging work like DataBall.">
+  <meta name="twitter:description" content="Public projects from Squalor LLC, including slicer, quire, DataBall, Obfuscator, Noterizer, Consecutor, and Space.">
   <meta name="twitter:image" content="https://squalor.xyz/assets/og-default.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -58,27 +58,52 @@
       <section class="section">
         <div class="container service-grid">
           <article class="list-card">
-            <h3>Noterizer</h3>
-            <p>Local-first audio transcription, structured summarization, OCR note capture, and semantic recall. The pipeline includes WhisperX transcription, speaker diarization, Ollama-based summarization, OCR to markdown, semantic indexing with ChromaDB, and query across transcripts, summaries, and image notes.</p>
-            <p><a href="https://github.com/squalor-xyz/noterizer">View repository</a></p>
+            <h3>slicer</h3>
+            <p>Local roadmap and slice tracking for a review, slice, implement, and done loop. Canonical state is git-tracked JSON under `.slicer/`, rendered to markdown, and a coding agent can work bounded slices through commands with JSON output. It uses the Python standard library only and does not call an AI service.</p>
+            <p>Python · Apache-2.0</p>
+            <p><a href="https://github.com/squalor-xyz/slicer">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h3>quire</h3>
+            <p>Turns Markdown into PDF or standalone HTML with Pandoc and WeasyPrint. A plain stylesheet is built in, and separate profiles carry branding, letterheads, and confidentiality marks. Builds use local files and make no network requests.</p>
+            <p>Python · MIT</p>
+            <p><a href="https://github.com/squalor-xyz/quire">View repository</a></p>
           </article>
 
           <article class="list-card">
             <h3>DataBall</h3>
             <p>Versatile data handling library for test executive applications. It is intended to support import/export across formats like CSV, Parquet, SQLite, archives, and `.ball`, along with metadata, relationships, DataFrame-style operations, and large dataset handling. It is heavily work-in-progress and likely to change substantially.</p>
+            <p>C# · Apache-2.0</p>
             <p><a href="https://github.com/squalor-xyz/DataBall">View repository</a></p>
-          </article>
-
-          <article class="list-card">
-            <h3>Consecutor</h3>
-            <p>A simple but capable app for tracking events and maintaining daily streaks. It supports reminders, streak tracking, and detailed stats, with locally stored and encrypted data for privacy.</p>
-            <p><a href="https://github.com/squalor-xyz/consecutor">View repository</a></p>
           </article>
 
           <article class="list-card">
             <h3>Obfuscator</h3>
             <p>A .NET library with a small CLI for generating synthetic CSV datasets, building ordered sweep datasets for test and characterization flows, reversibly obfuscating CSV data, and restoring obfuscated data from a manifest.</p>
+            <p>C# · MPL-2.0</p>
             <p><a href="https://github.com/squalor-xyz/Obfuscator">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h3>Noterizer</h3>
+            <p>Local-first audio transcription, structured summarization, OCR note capture, and semantic recall. The pipeline includes WhisperX transcription, speaker diarization, Ollama-based summarization, OCR to markdown, semantic indexing with ChromaDB, and query across transcripts, summaries, and image notes.</p>
+            <p>Python · MPL-2.0</p>
+            <p><a href="https://github.com/squalor-xyz/noterizer">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h3>Consecutor</h3>
+            <p>A simple but capable app for tracking events and maintaining daily streaks. It supports reminders, streak tracking, and detailed stats, with locally stored and encrypted data for privacy.</p>
+            <p>Kotlin · MPL-2.0</p>
+            <p><a href="https://github.com/squalor-xyz/consecutor">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <h3>Space</h3>
+            <p>Real-time black hole visualizations in the browser. Artistic WebGL demos, including Sagittarius A* and a binary merger, run on desktop and mobile with touch-friendly controls.</p>
+            <p>JavaScript · MPL-2.0</p>
+            <p><a href="https://space.squalor.xyz">Live site</a> · <a href="https://github.com/squalor-xyz/space">View repository</a></p>
           </article>
         </div>
       </section>

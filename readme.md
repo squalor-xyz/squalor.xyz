@@ -19,7 +19,7 @@ Marketing site for **Squalor LLC** (solo technical contracting): software, autom
 
 - `index.html` — home
 - `services.html` — offerings
-- `projects.html` — public OSS
+- `projects.html` — public OSS (slicer, quire, DataBall, Obfuscator, Noterizer, Consecutor, Space)
 - `contact.html` — email / channels
 
 WebGL space demos are **not** part of this repo; they live on `space.squalor.xyz`.
