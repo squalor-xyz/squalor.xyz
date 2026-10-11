@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="larder">
+  <title>larder</title>
+  <desc>A jar outline with a cream lid holding a two-item checklist. Cream parts carry a thin teal edge.</desc>
+  <g fill="#f4efe7" stroke="#6ee7d2" stroke-width="1.2">
+    <rect x="20.6" y="7.6" width="22.8" height="5.8" rx="1.8"/>
+    <rect x="31.6" y="28.6" width="12.8" height="4.4" rx="2.2"/>
+    <rect x="31.6" y="41.6" width="12.8" height="4.4" rx="2.2"/>
+  </g>
+  <rect x="13.5" y="18.5" width="37" height="38" rx="8" fill="none" stroke="#6ee7d2" stroke-width="3"/>
+  <g fill="none" stroke="#6ee7d2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 30.5l3 3 5-6"/>
+    <path d="M20 43.5l3 3 5-6"/>
+  </g>
+</svg>
