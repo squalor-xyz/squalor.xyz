@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="squalify">
+  <title>squalify</title>
+  <desc>A table outline with a header row and three columns, inspected by a magnifier with a cream lens. The lens carries a teal edge.</desc>
+  <rect x="8.5" y="10.5" width="36" height="32" rx="4" fill="none" stroke="#6ee7d2" stroke-width="3"/>
+  <g stroke="#6ee7d2" stroke-width="2">
+    <path d="M8.5 20.5h36"/>
+    <path d="M20.5 10.5v32"/>
+    <path d="M32.5 10.5v32"/>
+  </g>
+  <circle cx="41" cy="41" r="10" fill="#f4efe7" stroke="#6ee7d2" stroke-width="3"/>
+  <path d="M48.5 48.5l6.5 6.5" fill="none" stroke="#6ee7d2" stroke-width="4.5" stroke-linecap="round"/>
+</svg>

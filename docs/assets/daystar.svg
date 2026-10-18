@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Daystar">
+  <title>Daystar</title>
+  <desc>A four-by-four puzzle grid with a cream five-pointed star at its center. The star carries a thin teal edge.</desc>
+  <rect x="9.5" y="9.5" width="45" height="45" rx="6" fill="none" stroke="#6ee7d2" stroke-width="3"/>
+  <g stroke="#6ee7d2" stroke-width="1.5">
+    <path d="M20.75 9.5v45"/>
+    <path d="M32 9.5v45"/>
+    <path d="M43.25 9.5v45"/>
+    <path d="M9.5 20.75h45"/>
+    <path d="M9.5 32h45"/>
+    <path d="M9.5 43.25h45"/>
+  </g>
+  <path d="M32 19.5L35.29 28.97L45.31 29.17L37.33 35.23L40.23 44.83L32 39.1L23.77 44.83L26.67 35.23L18.69 29.17L28.71 28.97Z" fill="#f4efe7" stroke="#6ee7d2" stroke-width="1.2" stroke-linejoin="round"/>
+</svg>

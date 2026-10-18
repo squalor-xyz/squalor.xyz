@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, larder, DataBall, Obfuscator, Noterizer, Consecutor, and Space. sss is not public yet.">
+  <meta name="description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, adjudicate, larder, DataBall, squalify, Obfuscator, Noterizer, Consecutor, Space, pitfight, and Daystar. sss is not public yet.">
   <title>Squalor LLC | Projects</title>
   <link rel="canonical" href="https://squalor.xyz/projects.html">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -12,12 +12,12 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Squalor LLC">
   <meta property="og:title" content="Squalor LLC | Projects">
-  <meta property="og:description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, larder, DataBall, Obfuscator, Noterizer, Consecutor, and Space. sss is not public yet.">
+  <meta property="og:description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, adjudicate, larder, DataBall, squalify, Obfuscator, Noterizer, Consecutor, Space, pitfight, and Daystar. sss is not public yet.">
   <meta property="og:url" content="https://squalor.xyz/projects.html">
   <meta property="og:image" content="https://squalor.xyz/assets/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Squalor LLC | Projects">
-  <meta name="twitter:description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, larder, DataBall, Obfuscator, Noterizer, Consecutor, and Space. sss is not public yet.">
+  <meta name="twitter:description" content="Projects from Squalor LLC, including the Squalor Semiconductor Suite (sss), slicer, quire, adjudicate, larder, DataBall, squalify, Obfuscator, Noterizer, Consecutor, Space, pitfight, and Daystar. sss is not public yet.">
   <meta name="twitter:image" content="https://squalor.xyz/assets/og-default.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -89,6 +89,16 @@
 
           <article class="list-card">
             <div class="project-title">
+              <img class="project-mark" src="assets/adjudicate.png" alt="adjudicate logo" width="64" height="64">
+              <h3>adjudicate</h3>
+            </div>
+            <p>A plain-text decision log for owner and agent work. An agent asks a question with options and a recommendation, the owner decides in batches, and later agents read the decisions instead of asking again. Records are Markdown files in a decisions directory, so they diff and review in a pull request. The CLI is adj, at version 0.1.0.</p>
+            <p>Go · GPL-3.0</p>
+            <p><a href="https://github.com/squalor-xyz/adjudicate">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <div class="project-title">
               <img class="project-mark" src="assets/larder.svg" alt="larder logo" width="64" height="64">
               <h3>larder</h3>
             </div>
@@ -105,6 +115,16 @@
             <p>Versatile data handling library for test executive applications. It is intended to support import/export across formats like CSV, Parquet, SQLite, archives, and `.ball`, along with metadata, relationships, DataFrame-style operations, and large dataset handling. It is heavily work-in-progress and likely to change substantially.</p>
             <p>C# · Apache-2.0</p>
             <p><a href="https://github.com/squalor-xyz/DataBall">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <div class="project-title">
+              <img class="project-mark" src="assets/squalify.svg" alt="squalify logo" width="64" height="64">
+              <h3>squalify</h3>
+            </div>
+            <p>Profiles a data file and writes a versioned JSON descriptor of its encoding, format, layout, fields, and statistics, with the evidence behind each inference. It is deterministic, uses no ML or network, and leaves data values out by default. It is in the design phase.</p>
+            <p>C# · Apache-2.0</p>
+            <p><a href="https://github.com/squalor-xyz/squalify">View repository</a></p>
           </article>
 
           <article class="list-card">
@@ -145,6 +165,26 @@
             <p>Real-time black hole visualizations in the browser. Artistic WebGL demos, including Sagittarius A* and a binary merger, run on desktop and mobile with touch-friendly controls.</p>
             <p>JavaScript · MPL-2.0</p>
             <p><a href="https://space.squalor.xyz">Live site</a> · <a href="https://github.com/squalor-xyz/space">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <div class="project-title">
+              <img class="project-mark" src="assets/pitfight.png" alt="pitfight logo" width="64" height="64">
+              <h3>pitfight</h3>
+            </div>
+            <p>A Core War-style programming game. Write tiny bots in a small assembly language and pit them against each other in a shared circular memory arena. The same bots and seed always give the same match. It is in early development, with the assembler, VM, and match runner working.</p>
+            <p>Go · AGPL-3.0</p>
+            <p><a href="https://github.com/squalor-xyz/pitfight">View repository</a></p>
+          </article>
+
+          <article class="list-card">
+            <div class="project-title">
+              <img class="project-mark" src="assets/daystar.svg" alt="Daystar logo" width="64" height="64">
+              <h3>Daystar</h3>
+            </div>
+            <p>A daily Star Battle logic puzzle. An offline toolchain generates puzzles, proves each has exactly one solution, and grades its difficulty, and a small web player serves one puzzle per day as an installable PWA with no backend. It is in planning and has no code yet.</p>
+            <p>Python · TypeScript · AGPL-3.0</p>
+            <p><a href="https://github.com/squalor-xyz/daystar">View repository</a></p>
           </article>
         </div>
       </section>
