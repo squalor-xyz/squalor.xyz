@@ -14,7 +14,7 @@ Short overview of the static site served at [squalor.xyz](https://squalor.xyz).
 |------|---------|
 | Home (`index.html`) | Positioning, fit, principal blurb (Jon Robbins), optional canvas game |
 | Services (`services.html`) | Core offerings and engagement model |
-| Projects (`projects.html`) | Public OSS (sss, slicer, quire, adjudicate, larder, DataBall, squalify, Obfuscator, Noterizer, Consecutor, Space, pitfight, Daystar; sss is not public yet) |
+| Projects (`projects.html`) | Public OSS (sss, slicer, quire, adjudicate, ork, larder, DataBall, squalify, Obfuscator, Noterizer, Consecutor, Space, pitfight, Daystar; sss is not public yet) |
 | Contact (`contact.html`) | Prefill mailto, SLA, LinkedIn/GitHub/X |
 
 ## Related (separate site)
