@@ -24,10 +24,11 @@ Black-hole WebGL experiments are published from [squalor-xyz/space](https://gith
 ## Shared assets
 
 - `style.css` — layout and theme
-- `logo.svg` / `favicon.svg` — RF simple mark (from branding `rf/vector/`; no wordmark in the SVG)
-- `favicon-32.png` / `favicon-180.png` — raster favicon + apple-touch
+- `logo.svg` — SL seal, the site mark (branding `generated/logos/squalor/seal/vector/seal-sl-monogram.svg`)
+- `favicon.ico` (16/32/48), `favicon.svg`, `apple-touch-icon.png`, `icon-192/512.png`, `icon-maskable-192/512.png`, `site.webmanifest` — from branding `generated/logos/squalor/web/vector/exports/`; the favicons use a seal redrawn for 16 px
 - `game.js` — home-page runner (only loaded on home)
-- `assets/og-default.png` — Open Graph card (RF simple on dark + SQUALOR / squalor.xyz); source `og-default.svg`
+- `assets/og-default.png` — Open Graph card (seal + teal stencil SQUALOR + SQUALOR.XYZ on charcoal); source `og-default.svg` (branding `web/vector/og-image.svg`)
+- `assets/wordmark-distressed-teal.svg` — merch callout wordmark (branding `wordmark/vector/`)
 - `robots.txt`, `sitemap.xml` — crawl helpers
 
 ## Positioning (content)
