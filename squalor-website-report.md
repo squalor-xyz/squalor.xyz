@@ -24,11 +24,11 @@ Black-hole WebGL experiments are published from [squalor-xyz/space](https://gith
 ## Shared assets
 
 - `style.css` — layout and theme
-- `logo.svg` — simple SL seal (two rings and monogram, no arc text), the header mark (branding `generated/logos/squalor/seal/vector/seal-sl-simple.svg`); the full seal is used where it is shown large (social card)
+- `logo.svg` — header SL seal (one gold ring and light-teal monogram, no arc text), the header mark (branding `generated/logos/squalor/seal/vector/seal-sl-header.svg`); the full seal is used where it is shown large (social card)
 - `favicon.ico` (16/32/48), `favicon.svg`, `apple-touch-icon.png`, `icon-192/512.png`, `icon-maskable-192/512.png`, `site.webmanifest` — from branding `generated/logos/squalor/web/vector/exports/`; the favicons use a seal redrawn for 16 px
 - `game.js` — home-page runner (only loaded on home)
 - `assets/og-default.png` — Open Graph card (seal + teal stencil SQUALOR + SQUALOR.XYZ on charcoal); source `og-default.svg` (branding `web/vector/og-image.svg`)
-- `assets/wordmark-url-rust-teal.png` — merch callout wordmark, the rusted-teal raster that matches the shop art
+- `assets/wordmark-rust-teal.png` — merch callout wordmark: the rusted-teal raster that matches the shop art, without the URL (branding `generated/merch/print/transparent/wordmark-rust-teal.png`, trimmed and resized to 720 px)
 - `robots.txt`, `sitemap.xml` — crawl helpers
 
 ## Positioning (content)
