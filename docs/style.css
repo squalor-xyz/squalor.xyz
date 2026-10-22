@@ -484,7 +484,8 @@ li {
 
 .merch-callout .merch-wordmark {
   display: block;
-  width: min(100%, 360px);
+  width: 360px;
+  max-width: 100%;
   justify-self: end;
 }
 
@@ -583,7 +584,7 @@ canvas {
   .service-grid,
   .contact-grid,
   .callout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .stats,
