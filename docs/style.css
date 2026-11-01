@@ -403,6 +403,11 @@ main {
   margin-bottom: 1.2rem;
 }
 
+.category + .category .section-head {
+  border-top: 1px solid var(--line);
+  padding-top: 1.75rem;
+}
+
 .section-head h2,
 .callout h2,
 .canvas-head h2 {
