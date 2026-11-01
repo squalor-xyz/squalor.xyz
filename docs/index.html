@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
       <div class="nav-bar">
@@ -39,7 +40,7 @@
           </a>
         </div>
         <nav class="nav-links" aria-label="Primary">
-          <a class="active" href="index.html">Home</a>
+          <a aria-current="page" href="index.html">Home</a>
           <a href="services.html">Services</a>
           <a href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
@@ -48,12 +49,11 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy">
             <div class="eyebrow">Small company. Senior-level output.</div>
-            <p class="hero-brand">Squalor LLC</p>
             <h1>Technical software and automation for teams that need better tools.</h1>
             <p>Squalor LLC builds custom software, workflow automation, and data systems for teams that need to move faster with less friction. A major strength is RF test automation, device data collection, remote control of equipment, and measurement pipelines from capture to storage to analysis, but the work also extends to software architecture and organizational efficiency wherever better technical systems can improve how a team operates.</p>
             <div class="hero-actions">
@@ -77,20 +77,6 @@
           </div>
 
           <aside class="hero-card" aria-label="What Squalor delivers">
-            <div class="stats">
-              <div class="stat">
-                <strong>Assess</strong>
-                <span>Map the workflow, tools, and failure points.</span>
-              </div>
-              <div class="stat">
-                <strong>Build</strong>
-                <span>Ship software, automation, and data systems.</span>
-              </div>
-              <div class="stat">
-                <strong>Support</strong>
-                <span>Help underserved teams stay effective.</span>
-              </div>
-            </div>
             <div class="feature-list">
               <div class="feature-item">
                 <strong>Custom technical systems</strong>
@@ -192,10 +178,10 @@
                 <div class="kicker">Interactive</div>
                 <h2>Quick reflex test</h2>
               </div>
-              <p>Jump with <strong>space</strong> or <strong>tap</strong>.</p>
+              <p>Tap the game, or focus it and press <strong>space</strong>, to jump.</p>
             </div>
             <div class="canvas-wrap">
-              <canvas id="gameCanvas" width="960" height="360" aria-label="Simple runner game"></canvas>
+              <canvas id="gameCanvas" width="960" height="360" tabindex="0" role="img" aria-label="Simple runner game. Focus it and press space, or tap, to jump."></canvas>
             </div>
           </div>
         </div>

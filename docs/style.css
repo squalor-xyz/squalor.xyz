@@ -4,7 +4,7 @@
   --bg-panel: rgba(10, 18, 24, 0.82);
   --surface: #18242d;
   --surface-2: #223542;
-  --text: #f4efe7;
+  --text: #ffffff;
   --muted: #b4c0c8;
   --accent: #6ee7d2;
   --accent-strong: #f6c177;
@@ -13,14 +13,35 @@
   --max-width: 1180px;
   --radius-lg: 28px;
   --radius-md: 18px;
+  color-scheme: dark;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #122026;
+  font-weight: 700;
+}
+
+.skip-link:focus,
+.skip-link:hover {
+  top: 1rem;
+  color: #122026;
 }
 
 body {
@@ -184,7 +205,7 @@ img {
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links a[aria-current="page"] {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -213,7 +234,6 @@ main {
   background: var(--bg-elevated);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(16px);
 }
 
 .hero-copy {
@@ -241,21 +261,10 @@ main {
   letter-spacing: -0.03em;
 }
 
-.hero-copy .hero-brand {
-  margin: 0 0 0.5rem;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.4rem, 5.4vw, 3.8rem);
-  line-height: 0.9;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-  color: #fff8ee;
-}
-
 .hero-copy h1 {
-  font-size: clamp(1.75rem, 3.1vw, 2.6rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
   line-height: 1.04;
-  max-width: 11ch;
-  color: rgba(255, 248, 238, 0.92);
+  max-width: 16ch;
 }
 
 .hero-copy p,
@@ -295,8 +304,25 @@ main {
 }
 
 .button:hover,
+.button:focus-visible {
+  color: #122026;
+}
+
+.button:hover,
 .button-secondary:hover {
   transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .button-secondary {
+    transition: none;
+  }
+
+  .button:hover,
+  .button-secondary:hover {
+    transform: none;
+  }
 }
 
 .hero-card {
@@ -306,27 +332,22 @@ main {
   gap: 1rem;
 }
 
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-.stat {
-  padding: 1rem;
+/* One shared tile style for the small blocks inside the hero. */
+.metric,
+.feature-item,
+.mini-card {
+  padding: 1rem 1.1rem;
   border-radius: var(--radius-md);
-  background: var(--bg-panel);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.stat strong,
 .metric strong {
   display: block;
   font-size: 1.4rem;
   font-family: Georgia, "Times New Roman", serif;
 }
 
-.stat span,
 .metric span {
   color: var(--muted);
   font-size: 0.92rem;
@@ -335,13 +356,6 @@ main {
 .feature-list {
   display: grid;
   gap: 0.8rem;
-}
-
-.feature-item {
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .feature-item strong {
@@ -353,13 +367,6 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
-}
-
-.mini-card {
-  padding: 1rem 1.05rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .mini-card strong {
@@ -438,6 +445,42 @@ main {
   margin-top: 0;
   margin-bottom: 0.55rem;
   font-size: 1.2rem;
+}
+
+.list-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-card .card-link {
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 0.4rem;
+}
+
+.list-card .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.2rem 0 0.9rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  margin: 0;
+  padding: 0.15rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.chip-status {
+  border-color: rgba(246, 193, 119, 0.4);
+  color: var(--accent-strong);
 }
 
 .project-title {
@@ -545,6 +588,12 @@ canvas {
   display: block;
   width: 100%;
   height: auto;
+  touch-action: manipulation;
+}
+
+canvas:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .footer {
@@ -592,7 +641,6 @@ canvas {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .stats,
   .hero-subgrid {
     grid-template-columns: 1fr;
   }

@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
       <div class="nav-bar">
@@ -41,14 +42,14 @@
         <nav class="nav-links" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="services.html">Services</a>
-          <a class="active" href="projects.html">Projects</a>
+          <a aria-current="page" href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
           <a href="https://squalor.printful.me">Merch</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="page-hero">
         <div class="container">
           <div class="panel">
@@ -68,42 +69,42 @@
           <div class="service-grid">
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/slicer.svg" alt="slicer logo" width="64" height="64">
+                <img class="project-mark" src="assets/slicer.svg" alt="" width="64" height="64">
                 <h3>slicer</h3>
               </div>
-              <p>Local roadmap and slice tracking for a review, slice, implement, and done loop. Canonical state is git-tracked JSON under `.slicer/`, rendered to markdown, and a coding agent can work bounded slices through commands with JSON output. It uses the Python standard library only and does not call an AI service.</p>
-              <p>Python · Apache-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/slicer">View repository</a></p>
+              <p>Local roadmap and slice tracking for a review, slice, implement, and done loop. Canonical state is git-tracked JSON under <code>.slicer/</code>, rendered to markdown, and a coding agent can work bounded slices through commands with JSON output. It uses the Python standard library only and does not call an AI service.</p>
+              <ul class="chips"><li class="chip">Python</li><li class="chip">Apache-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/slicer">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/adjudicate.png" alt="adjudicate logo" width="64" height="64">
+                <img class="project-mark" src="assets/adjudicate.png" alt="" width="64" height="64">
                 <h3>adjudicate</h3>
               </div>
               <p>A plain-text decision log for owner and agent work. An agent asks a question with options and a recommendation, the owner decides in batches, and later agents read the decisions instead of asking again. Records are Markdown files in a decisions directory, so they diff and review in a pull request. The CLI is adj, at version 0.1.0.</p>
-              <p>Go · GPL-3.0</p>
-              <p><a href="https://github.com/squalor-xyz/adjudicate">View repository</a></p>
+              <ul class="chips"><li class="chip">Go</li><li class="chip">GPL-3.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/adjudicate">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/ork.svg" alt="ork logo" width="64" height="64">
+                <img class="project-mark" src="assets/ork.svg" alt="" width="64" height="64">
                 <h3>ork</h3>
               </div>
-              <p>A terminal dashboard and engine for parallel slice relays across projects. One view shows each project's roadmap and decisions and every running slice, and ork runs approved waves of slices on Claude, Codex, or Grok, with vendor fallback. A background daemon keeps waves running when the dashboard is closed. It is in development, with v1 aimed at monitoring and at launching and supervising slice waves.</p>
-              <p>Go · GPL-3.0-or-later</p>
-              <p><a href="https://github.com/squalor-xyz/ork">View repository</a></p>
+              <p>A terminal dashboard and engine for parallel slice relays across projects. One view shows each project's roadmap and decisions and every running slice, and ork runs approved waves of slices on Claude, Codex, or Grok, with vendor fallback. A background daemon keeps waves running when the dashboard is closed. V1 is aimed at monitoring and at launching and supervising slice waves.</p>
+              <ul class="chips"><li class="chip chip-status">In development</li><li class="chip">Go</li><li class="chip">GPL-3.0-or-later</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/ork">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/quire.svg" alt="quire logo" width="64" height="64">
+                <img class="project-mark" src="assets/quire.svg" alt="" width="64" height="64">
                 <h3>quire</h3>
               </div>
               <p>Turns Markdown into PDF or standalone HTML with Pandoc and WeasyPrint. A plain stylesheet is built in, and separate profiles carry branding, letterheads, and confidentiality marks. Builds use local files and make no network requests.</p>
-              <p>Python · MIT</p>
-              <p><a href="https://github.com/squalor-xyz/quire">View repository</a></p>
+              <ul class="chips"><li class="chip">Python</li><li class="chip">MIT</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/quire">View repository</a></p>
             </article>
           </div>
         </div>
@@ -118,42 +119,41 @@
           <div class="service-grid">
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/sss.png" alt="sss logo" width="64" height="64">
+                <img class="project-mark" src="assets/sss.png" alt="" width="64" height="64">
                 <h3>sss</h3>
               </div>
               <p>Squalor Semiconductor Suite (sss): a testing executive for automated data collection, with tools for plotting and automated reporting, on shared backend libraries.</p>
-              <p>C# · Apache-2.0</p>
-              <p>Not public yet</p>
+              <ul class="chips"><li class="chip chip-status">Not public yet</li><li class="chip">C#</li><li class="chip">Apache-2.0</li></ul>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/databall.svg" alt="DataBall logo" width="64" height="64">
+                <img class="project-mark" src="assets/databall.svg" alt="" width="64" height="64">
                 <h3>DataBall</h3>
               </div>
-              <p>Versatile data handling library for test executive applications. It is intended to support import/export across formats like CSV, Parquet, SQLite, archives, and `.ball`, along with metadata, relationships, DataFrame-style operations, and large dataset handling. It is heavily work-in-progress and likely to change substantially.</p>
-              <p>C# · Apache-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/DataBall">View repository</a></p>
+              <p>Versatile data handling library for test executive applications. It is intended to support import/export across formats like CSV, Parquet, SQLite, archives, and <code>.ball</code>, along with metadata, relationships, DataFrame-style operations, and large dataset handling. It is likely to change substantially.</p>
+              <ul class="chips"><li class="chip chip-status">Work in progress</li><li class="chip">C#</li><li class="chip">Apache-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/DataBall">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/squalify.svg" alt="squalify logo" width="64" height="64">
+                <img class="project-mark" src="assets/squalify.svg" alt="" width="64" height="64">
                 <h3>squalify</h3>
               </div>
-              <p>Profiles a data file and writes a versioned JSON descriptor of its encoding, format, layout, fields, and statistics, with the evidence behind each inference. It is deterministic, uses no ML or network, and leaves data values out by default. It is in the design phase.</p>
-              <p>C# · Apache-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/squalify">View repository</a></p>
+              <p>Profiles a data file and writes a versioned JSON descriptor of its encoding, format, layout, fields, and statistics, with the evidence behind each inference. It is deterministic, uses no ML or network, and leaves data values out by default.</p>
+              <ul class="chips"><li class="chip chip-status">Design phase</li><li class="chip">C#</li><li class="chip">Apache-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/squalify">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/obfuscator.svg" alt="Obfuscator logo" width="64" height="64">
+                <img class="project-mark" src="assets/obfuscator.svg" alt="" width="64" height="64">
                 <h3>Obfuscator</h3>
               </div>
               <p>A .NET library with a small CLI for generating synthetic CSV datasets, building ordered sweep datasets for test and characterization flows, reversibly obfuscating CSV data, and restoring obfuscated data from a manifest.</p>
-              <p>C# · MPL-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/Obfuscator">View repository</a></p>
+              <ul class="chips"><li class="chip">C#</li><li class="chip">MPL-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/Obfuscator">View repository</a></p>
             </article>
           </div>
         </div>
@@ -168,32 +168,32 @@
           <div class="service-grid">
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/noterizer.svg" alt="Noterizer logo" width="64" height="64">
+                <img class="project-mark" src="assets/noterizer.svg" alt="" width="64" height="64">
                 <h3>Noterizer</h3>
               </div>
               <p>Local-first audio transcription, structured summarization, OCR note capture, and semantic recall. The pipeline includes WhisperX transcription, speaker diarization, Ollama-based summarization, OCR to markdown, semantic indexing with ChromaDB, and query across transcripts, summaries, and image notes.</p>
-              <p>Python · MPL-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/noterizer">View repository</a></p>
+              <ul class="chips"><li class="chip">Python</li><li class="chip">MPL-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/noterizer">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/larder.svg" alt="larder logo" width="64" height="64">
+                <img class="project-mark" src="assets/larder.svg" alt="" width="64" height="64">
                 <h3>larder</h3>
               </div>
-              <p>Self-hosted household food system for recipes, weekly dinner planning, and a shared shopping list. It is a Flask PWA for phones on the home network, with recipes kept as Markdown files in their own git repository. It is in planning and has no application code yet.</p>
-              <p>Python · AGPL-3.0</p>
-              <p><a href="https://github.com/squalor-xyz/larder">View repository</a></p>
+              <p>Self-hosted household food system for recipes, weekly dinner planning, and a shared shopping list. It is a Flask PWA for phones on the home network, with recipes kept as Markdown files in their own git repository. There is no application code yet.</p>
+              <ul class="chips"><li class="chip chip-status">Planning</li><li class="chip">Python</li><li class="chip">AGPL-3.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/larder">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/consecutor.png" alt="Consecutor logo" width="64" height="64">
+                <img class="project-mark" src="assets/consecutor.png" alt="" width="64" height="64">
                 <h3>Consecutor</h3>
               </div>
               <p>A simple but capable app for tracking events and maintaining daily streaks. It supports reminders, streak tracking, and detailed stats, with locally stored and encrypted data for privacy.</p>
-              <p>Kotlin · MPL-2.0</p>
-              <p><a href="https://github.com/squalor-xyz/consecutor">View repository</a></p>
+              <ul class="chips"><li class="chip">Kotlin</li><li class="chip">MPL-2.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/consecutor">View repository</a></p>
             </article>
           </div>
         </div>
@@ -208,32 +208,32 @@
           <div class="service-grid">
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/pitfight.png" alt="pitfight logo" width="64" height="64">
+                <img class="project-mark" src="assets/pitfight.png" alt="" width="64" height="64">
                 <h3>pitfight</h3>
               </div>
-              <p>A Core War-style programming game. Write tiny bots in a small assembly language and pit them against each other in a shared circular memory arena. The same bots and seed always give the same match. It is in early development, with the assembler, VM, and match runner working.</p>
-              <p>Go · AGPL-3.0</p>
-              <p><a href="https://github.com/squalor-xyz/pitfight">View repository</a></p>
+              <p>A Core War-style programming game. Write tiny bots in a small assembly language and pit them against each other in a shared circular memory arena. The same bots and seed always give the same match. The assembler, VM, and match runner work.</p>
+              <ul class="chips"><li class="chip chip-status">Early development</li><li class="chip">Go</li><li class="chip">AGPL-3.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/pitfight">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/daystar.svg" alt="Daystar logo" width="64" height="64">
+                <img class="project-mark" src="assets/daystar.svg" alt="" width="64" height="64">
                 <h3>Daystar</h3>
               </div>
-              <p>A daily Star Battle logic puzzle. An offline toolchain generates puzzles, proves each has exactly one solution, and grades its difficulty, and a small web player serves one puzzle per day as an installable PWA with no backend. It is in planning and has no code yet.</p>
-              <p>Python · TypeScript · AGPL-3.0</p>
-              <p><a href="https://github.com/squalor-xyz/daystar">View repository</a></p>
+              <p>A daily Star Battle logic puzzle. An offline toolchain generates puzzles, proves each has exactly one solution, and grades its difficulty, and a small web player serves one puzzle per day as an installable PWA with no backend. There is no code yet.</p>
+              <ul class="chips"><li class="chip chip-status">Planning</li><li class="chip">Python</li><li class="chip">TypeScript</li><li class="chip">AGPL-3.0</li></ul>
+              <p class="card-link"><a href="https://github.com/squalor-xyz/daystar">View repository</a></p>
             </article>
 
             <article class="list-card">
               <div class="project-title">
-                <img class="project-mark" src="assets/space.jpg" alt="Space logo" width="64" height="64">
+                <img class="project-mark" src="assets/space.jpg" alt="" width="64" height="64">
                 <h3>Space</h3>
               </div>
               <p>Real-time black hole visualizations in the browser. Artistic WebGL demos, including Sagittarius A* and a binary merger, run on desktop and mobile with touch-friendly controls.</p>
-              <p>JavaScript · MPL-2.0</p>
-              <p><a href="https://space.squalor.xyz">Live site</a> · <a href="https://github.com/squalor-xyz/space">View repository</a></p>
+              <ul class="chips"><li class="chip">JavaScript</li><li class="chip">MPL-2.0</li></ul>
+              <p class="card-link"><a href="https://space.squalor.xyz">Live site</a> · <a href="https://github.com/squalor-xyz/space">View repository</a></p>
             </article>
           </div>
         </div>
@@ -246,7 +246,18 @@
             <h2>See the broader public repo set.</h2>
             <p>The GitHub organization remains the best place to see what is public right now, including utility projects, experiments, and whatever moves from internal use into open tooling over time.</p>
           </div>
-          <a class="button" href="https://github.com/orgs/squalor-xyz/repositories?q=visibility%3Apublic+archived%3Afalse">Browse public repos</a>
+          <a class="button-secondary" href="https://github.com/orgs/squalor-xyz/repositories?q=visibility%3Apublic+archived%3Afalse">Browse public repos</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container callout panel">
+          <div>
+            <div class="kicker">Work with Squalor</div>
+            <h2>Need something like this built for your team?</h2>
+            <p>The same approach applies to internal tools, automation, and data systems for your own workflows.</p>
+          </div>
+          <a class="button" href="contact.html">Start a conversation</a>
         </div>
       </section>
     </main>

@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
       <div class="nav-bar">
@@ -40,7 +41,7 @@
         </div>
         <nav class="nav-links" aria-label="Primary">
           <a href="index.html">Home</a>
-          <a class="active" href="services.html">Services</a>
+          <a aria-current="page" href="services.html">Services</a>
           <a href="projects.html">Projects</a>
           <a href="contact.html">Contact</a>
           <a href="https://squalor.printful.me">Merch</a>
@@ -48,7 +49,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="page-hero">
         <div class="container">
           <div class="panel">
@@ -137,7 +138,18 @@
             <h2>Public tooling is part of the long game.</h2>
             <p>Squalor also develops public tooling across areas like local-first note capture, streak tracking, data utilities, and emerging dataset infrastructure, with longer-term ideas such as a free test executive intended to support underserved teams.</p>
           </div>
-          <a class="button" href="projects.html">Browse projects</a>
+          <a class="button-secondary" href="projects.html">Browse projects</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container callout panel">
+          <div>
+            <div class="kicker">Next step</div>
+            <h2>Describe the problem you want solved.</h2>
+            <p>A short note on the workflow, data, or equipment involved is enough to start.</p>
+          </div>
+          <a class="button" href="contact.html">Start a conversation</a>
         </div>
       </section>
     </main>

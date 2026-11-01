@@ -16,8 +16,14 @@ if (canvas) {
   let obstacles;
   let score;
   let bestScore;
-  let lastObstacleTime;
+  let sinceObstacle;
   let lastTime = 0;
+  let frameId = null;
+  let inView = false;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // With reduced motion the game stays still until the first jump.
+  let started = !reduceMotion;
+  const FRAME_MS = 1000 / 60;
 
   function resetGame() {
     player = {
@@ -28,10 +34,14 @@ if (canvas) {
     };
     obstacles = [];
     score = 0;
-    lastObstacleTime = performance.now();
+    sinceObstacle = 0;
   }
 
   function jump() {
+    if (!started) {
+      started = true;
+      syncLoop();
+    }
     if (player.onGround) {
       player.vy = JUMP_FORCE;
       player.onGround = false;
@@ -68,9 +78,10 @@ if (canvas) {
     }
   }
 
-  function update() {
-    player.vy += GRAVITY;
-    player.y += player.vy;
+  // dt is elapsed time in 60 Hz frames, so speed is the same on any refresh rate.
+  function update(dt) {
+    player.vy += GRAVITY * dt;
+    player.y += player.vy * dt;
 
     const groundY = BASE_HEIGHT - FLOOR_HEIGHT - PLAYER_HEIGHT;
     if (player.y >= groundY) {
@@ -79,13 +90,14 @@ if (canvas) {
       player.onGround = true;
     }
 
-    if (performance.now() - lastObstacleTime >= OBSTACLE_INTERVAL) {
+    sinceObstacle += dt * FRAME_MS;
+    if (sinceObstacle >= OBSTACLE_INTERVAL) {
       spawnObstacle();
-      lastObstacleTime = performance.now();
+      sinceObstacle = 0;
     }
 
     for (const obstacle of obstacles) {
-      obstacle.x -= obstacle.speed;
+      obstacle.x -= obstacle.speed * dt;
       if (!obstacle.passed && obstacle.x + obstacle.width < player.x) {
         obstacle.passed = true;
         score += 1;
@@ -139,13 +151,29 @@ if (canvas) {
   }
 
   function drawScore() {
-    ctx.fillStyle = "#f4efe7";
-    ctx.font = '700 18px "Avenir Next", "Segoe UI", sans-serif';
-    ctx.fillText(`Score ${score}`, 24, 34);
-    ctx.fillStyle = "rgba(244, 239, 231, 0.7)";
-    ctx.font = '500 14px "Avenir Next", "Segoe UI", sans-serif';
-    ctx.fillText(`Best ${bestScore}`, 24, 56);
-    ctx.fillText("Space or tap to jump", BASE_WIDTH - 180, 34);
+    // The canvas is scaled to fit its container, so grow the text in canvas
+    // units when it is shown small (phones) to keep it about 12 px on screen.
+    const shown = canvas.clientWidth || BASE_WIDTH;
+    const scale = BASE_WIDTH / shown;
+    const big = Math.max(18, 14 * scale);
+    const small = Math.max(14, 12 * scale);
+    const family = '"Avenir Next", "Segoe UI", sans-serif';
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#ffffff";
+    ctx.font = `700 ${big}px ${family}`;
+    ctx.fillText(`Score ${score}`, 24, 16 + big);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+    ctx.font = `500 ${small}px ${family}`;
+    ctx.fillText(`Best ${bestScore}`, 24, 16 + big + small * 1.4);
+
+    if (!started) {
+      ctx.textAlign = "center";
+      ctx.fillText("Tap or press space to start", BASE_WIDTH / 2, BASE_HEIGHT / 2);
+    } else if (scale < 1.6) {
+      ctx.textAlign = "right";
+      ctx.fillText("Space or tap to jump", BASE_WIDTH - 24, 16 + big);
+    }
   }
 
   function draw() {
@@ -157,17 +185,33 @@ if (canvas) {
   }
 
   function gameLoop(timestamp) {
-    if (!lastTime) {
-      lastTime = timestamp;
-    }
-
-    update();
-    draw();
+    frameId = null;
+    // Cap dt so a long pause (background tab) cannot teleport anything.
+    const dt = lastTime ? Math.min((timestamp - lastTime) / FRAME_MS, 3) : 1;
     lastTime = timestamp;
-    requestAnimationFrame(gameLoop);
+
+    update(dt);
+    draw();
+    if (inView && started) {
+      frameId = requestAnimationFrame(gameLoop);
+    }
   }
 
-  document.addEventListener("keydown", (event) => {
+  // Start or stop the loop: it runs only while the game is on screen and started.
+  function syncLoop() {
+    const shouldRun = inView && started;
+    if (shouldRun && frameId === null) {
+      lastTime = 0;
+      frameId = requestAnimationFrame(gameLoop);
+    } else if (!shouldRun && frameId !== null) {
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+  }
+
+  // Space is only taken over while the game itself has keyboard focus, so it
+  // still scrolls the page and activates buttons everywhere else.
+  canvas.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
       event.preventDefault();
       jump();
@@ -178,5 +222,10 @@ if (canvas) {
 
   bestScore = 0;
   resetGame();
-  requestAnimationFrame(gameLoop);
+  draw();
+
+  new IntersectionObserver((entries) => {
+    inView = entries[entries.length - 1].isIntersecting;
+    syncLoop();
+  }).observe(canvas);
 }
